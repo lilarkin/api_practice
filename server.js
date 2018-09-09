@@ -9,10 +9,11 @@ const port = 8000;
 
 app.use(bodyParser.urlencoded({ extended: true}))
 
-require('./app/routes')(app, {});
+//cannot call app.listen(port, callbackfunction) twice
+/*require('./app/routes')(app, {});
 app.listen(port, () => {
     console.log("We are live on " + port);
-})
+})*/
 
 MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) =>{
     if (err) return console.log(err)
